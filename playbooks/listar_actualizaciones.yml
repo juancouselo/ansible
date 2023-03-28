@@ -1,0 +1,22 @@
+---
+- name: Comprobar actualizaciones de Windows
+  hosts: windows
+  gather_facts: no
+
+  vars:
+    win_update_categories: '*'
+  tasks:
+    - name: Obtener información de actualización de Windows
+      win_updates:
+        category_names: "{{ win_update_categories }}"
+        state: searched
+      register: windows_updates
+
+    - name: Mostrar actualizaciones disponibles
+      debug:
+        var: windows_updates.updates
+
+    - name: Mostrar si hay actualizaciones pendientes
+      debug:
+        msg: "Hay actualizaciones pendientes"
+      when: windows_updates.updates|length > 0
