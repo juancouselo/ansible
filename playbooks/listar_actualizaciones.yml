@@ -1,6 +1,6 @@
 ---
 - name: Comprobar actualizaciones de Windows
-  hosts: 192.168.208.11
+  hosts: dztestadconnect
   gather_facts: no
 
   vars:
