@@ -1,6 +1,6 @@
 ---
 - name: Comprobar actualizaciones de Windows
-  hosts: windows
+  hosts: dztestadconnect.DZTEST.LOCAL
   gather_facts: no
 
   vars:
